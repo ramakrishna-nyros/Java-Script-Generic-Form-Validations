@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<title>Registration Form</title>
+		
+		<link rel="stylesheet" href="css/account.css" type="text/css"/>
+		<script src="JS/account.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		//window.onbeforeunload = function (){return '';}
+		function validate()
+		{
+		var bar=0;
+		var rad=document.myform.gen;
+		var check=document.myform.hobbies;
+		
+		if(valid(uname,"Please enter username min:5 max:8"))
+		{
+		if(startWithAlphabet(uname,"Username must start with alphabet"))
+		{
+		 if(alphaNumericValid(uname,"Please enter alphanumerics only" ))
+		  {
+		   if(minLengthValid(uname,5,"Username atleast contain 5 characters"))
+		     {
+			  bar=bar+8;
+			  progress.style.width=bar+"%";
+			  document.getElementById("progress").innerHTML=bar+"%";
+				
+			if(valid(pwd,"Please enter password min:4 max:6"))
+			 {
+			  if(alphaNumericValid(pwd, "Please enter alphanumerics only" ))
+			   {
+			   if(minLengthValid(pwd,4,"Password atleast contain 4 characters"))
+		       {
+			    bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				
+				
+			 if(valid(fname,"Please enter first name min:2 max:6"))
+			   {	
+			    if(alphabetValid(fname,"Please enter alphabets only" ))
+			     {
+				 if(minLengthValid(fname,2,"Firstname atleast contain 2 characters"))
+		          {
+				   bar=bar+8;
+				   progress.style.width=bar+"%";
+				   document.getElementById("progress").innerHTML=bar+"%";
+				   
+			  if(valid(lname,"Please enter last name min:2 max:15"))
+			   {
+				if(alphabetValid(lname,"Please enter alphabets only" ))
+				 {
+				 if(minLengthValid(lname,2,"Lastname atleast contain 2 characters"))
+		          {
+					bar=bar+8;
+					progress.style.width=bar+"%";
+					document.getElementById("progress").innerHTML=bar+"%";
+					
+					
+			  if(valid(pic,"please upload your image"))
+			  {
+			   if(fileTypeValid(pic, "Please upload .jpg, .gif,.png inages only " ))
+			   {
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				
+			
+			if(	mulCheckValid(rad,"please select your gender"))
+			{
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+			if(mulSelvalid(day,"Please select day of your dateofbirth"))
+			 {
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				
+			if(mulSelvalid(month,"Please select month of your dateofbirth"))
+			{
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				
+			if(mulSelvalid(year,"Please select year of your dateofbirth"))
+			{
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+			if(	mulCheckValid(check,"please select your hobbies"))
+			{
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";	
+			if(mulSelvalid(country,"Please select your country"))
+			{
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				
+			if(valid(phno,"Please enter your phone number"))
+			{
+			if(phoneNumValid(phno,"Please enter valid phone number"))
+			{
+				bar=bar+8;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				
+			if(valid(email,"Please enter your email"))
+			{
+			if(emailValid(email,"Please enter valid email"))
+			{
+				bar=bar+4;
+				progress.style.width=bar+"%";
+				document.getElementById("progress").innerHTML=bar+"%";
+				success.style.display="block";
+				success.focus();
+				event.preventDefault();
+				return true;
+			}}}}}}}}}}}}}}}}}}}}}}}}}
+			
+		return false;
+		}
+		</script>
+		</head>
+<body>
+  <div id="main">
+		<div id="meter">
+			<div id="progress">0%</div>
+		</div>	
+				
+		<div id="success">
+			<h3>Well done! You successfully read this important alert message</h3>
+		</div>
+				
+		<div id="heading">
+			<h1>Account Form:</h1>
+		</div>
+				
+		<div id="content" class="form-content">
+			
+		  <form id="myform" name="myform" onsubmit="return validate()" action="" enctype="multipart/form-data" method="post">
+			<fieldset>
+				<legend>Account Information</legend>
+				<div class="border"></div><br>
+				
+				<label>Username<sup>*</sup></label>
+				<input type="text" id="uname" name="uname" maxlength="8"/><br><br>
+				
+				<label>Password<sup>*</sup></label>
+				<input type="password" id="pwd" name="pwd"  maxlength="6"/><br><br>
+				
+				<legend>Profile Information</legend>
+				<div class="border"></div><br>
+				
+				<label>First Name<sup>*</sup></label>
+				<input type="text" id="fname" name="fname" maxlength="6"/><br><br>
+				
+				<label>Last Name<sup>*</sup></label>
+				<input type="text" id="lname" name="lname" maxlength="15"/><br><br>
+				
+				<label>Profile Pic<sup>*</sup></label>
+				<input type="file"  accept="image/*" id="pic" name="pic" ><br><br>
+				
+				<label>Gender<sup>*</sup></label>
+				<input type="radio" id="g1 " name="gen" value="male" />Male<br>
+				<input type="radio" id="g2" name="gen" value="female" />Female<br/><br/>
+				
+				<label>Date of Birth<sup>*</sup></label>
+				<select id="day" name="day" >
+								<option selected >Select day</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+								<option>25</option>
+								<option>26</option>
+								<option>27</option>
+								<option>28</option>
+								<option>29</option>
+								<option>30</option>
+								<option>31</option>
+								</select>
+				<select id="month" name="month">
+								<option selected>Select month</option>
+								<option>January</option>
+								<option>February</option>
+								<option>March</option>
+								<option>April</option>
+								<option>May</option>
+								<option>June</option>
+								<option>July</option>
+								<option>August</option>
+								<option>September</option>
+								<option>October</option>
+								<option>November</option>
+								<option>December</option>
+								</select>
+				<select id="year" name="year">
+								<option selected>Select year</option>
+								<option>1985</option>
+								<option>1986</option>
+								<option>1987</option>
+								<option>1988</option>
+								<option>1989</option>
+								<option>1990</option>
+								<option>1991</option>
+								<option>1992</option>
+								<option>1993</option>
+								<option>1994</option>
+								<option>1995</option>
+								</select><br><br>
+								
+				<label>Hobbies<sup>*</sup></label>
+				<input type="checkbox" id="h1" name="hobbies" value="Painting">Painting
+				<input type="checkbox" id="h2" name="hobbies" value="Singing" >Singing
+				<input type="checkbox" id="h3" name="hobbies" value="Traveling" >Traveling
+				<input type="checkbox" id="h4" name="hobbies" value="Dancing" >Dancing
+				<input type="checkbox" id="h5" name="hobbies" value="Gaedening" >Gardening
+				<input type="checkbox" id="h6" name="hobbies" value="Others" >Others<br><br>
+				
+				
+				<label>Have been to<sup>*</sup></label>
+				<select id="country" name="country">
+							<option value="" selected="selected">Select Country</option>
+							<option value="United States">United States</option>
+							<option value="United Kingdom">United Kingdom</option>
+							<option value="Afghanistan">Afghanistan</option> 
+							<option value="Albania">Albania</option>
+							<option value="Algeria">Algeria</option>
+							<option value="Antarctica">Antarctica</option>
+							<option value="Argentina">Argentina</option>
+							<option value="China">China</option>
+							<option value="Hungary">Hungary</option>
+							<option value="Iceland">Iceland</option>
+							<option value="India">India</option>
+							<option value="Indonesia">Indonesia</option>
+							<option value="Iraq">Iraq</option>
+							<option value="Ireland">Ireland</option>
+							<option value="Israel">Israel</option>
+							<option value="Italy">Italy</option>
+							<option value="Jamaica">Jamaica</option>
+							<option value="Japan">Japan</option>
+							<option value="Zimbabwe">Zimbabwe</option>
+				</select><br/><br/>
+				
+				<legend>Contact Information</legend>
+				<div class="border"></div><br/>
+				<label>Phone<sup>*</sup></label>
+				<input type="text" id="phno" name="phno" maxlength="20"
+				placeholder="Format +91 (970)-789-9090" /><br><br>
+				
+				<label>Email<sup>*</sup></label>
+				<input type="text" id="email" name="email"/><br>
+				
+				<input type="submit" value="SUBMIT"/>
+				
+			</fieldset>
+		</form>
+	  </div>		
+    </div>
+   </body>
+</html>
